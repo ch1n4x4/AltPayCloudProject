@@ -1,0 +1,32 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "LeastPrivilegeS3UploadsPrefixOnly",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::altpay-uploads-${ACCOUNT_ID}-eu-west-1/uploads/*"
+    },
+    {
+      "Sid": "ReadDatabaseCredentialsSecret",
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:DescribeSecret"
+      ],
+      "Resource": "${DB_SECRET_ARN}"
+    },
+    {
+      "Sid": "AllowKMSCryptoForS3AndSecrets",
+      "Effect": "Allow",
+      "Action": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ],
+      "Resource": "${KMS_KEY_ARN}"
+    }
+  ]
+}

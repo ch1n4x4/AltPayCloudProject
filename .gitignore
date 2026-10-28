@@ -1,0 +1,31 @@
+#Local Terraform state, lock files, and caches
+.terraform/
+*.tfstate
+.tfstate.
+crash.log
+crash.out
+*.tfplan
+*/tfplan
+.terraform.lock.hcl
+
+#IDE and Editor configurations
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+#OS generated files
+
+Thumbs.db
+ehthumbs.dping
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+#Temporary and local test outputs
+
+*.log
+*.tmp
+temp/
